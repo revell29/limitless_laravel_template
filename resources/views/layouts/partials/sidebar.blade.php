@@ -28,38 +28,38 @@
                         title="Main"></i>
                 </li> --}}
                 <li class="nav-item">
-                    <a href="{{ route('dashboard') }}"
-                        class="nav-link {{ request()->segment(2) == 'home' ? 'active' : '' }}">
+                    <a href="{{ route('dashboard') }}" class="nav-link {{ request()->segment(2) == 'home' ? 'active' : '' }}">
                         <i class="icon-home4"></i>
                         <span>
                             Dashboard
                         </span>
                     </a>
                 </li>
-                <li
-                    class="nav-item nav-item-submenu {{ in_array(request()->segment(2), ['user'])  ? 'nav-item-open nav-item-expanded' : '' }}">
-                    <a href="#" class="nav-link"><i class="icon-users"></i> <span>User Management</span></a>
+                <li class="nav-item nav-item-submenu {{ in_array(request()->segment(2), ['user'])  ? 'nav-item-open nav-item-expanded' : '' }}">
+                    <a href="#" class="nav-link"><i class="icon-user"></i> <span>User Management</span></a>
 
                     <ul class="nav nav-group-sub" data-submenu-title="Layouts">
                         <li class="nav-item"><a href="{{ route('user.index') }}"
-                                class="nav-link {{ request()->segment(2) == 'user' ? 'active' : '' }}">Users</a>
+                                class="nav-link {{ request()->segment(2) == 'user' ? 'active' : '' }}">List Admin</a>
                         </li>
                     </ul>
-                </li>   
+                </li>
                 <li
-                    class="nav-item nav-item-submenu {{ in_array(request()->segment(2), ['hr'])  ? 'nav-item-open nav-item-expanded' : '' }}">
-                    <a href="#" class="nav-link"><i class="icon-users"></i> <span>HR Management</span></a>
+                    class="nav-item nav-item-submenu {{ in_array(request()->segment(2), ['obat','pasien','dokter'])  ? 'nav-item-open nav-item-expanded' : '' }}">
+                    <a href="#" class="nav-link"><i class="icon-database"></i> <span>Master Data</span></a>
 
                     <ul class="nav nav-group-sub" data-submenu-title="Layouts">
-                        <li class="nav-item"><a href="{{ route('employee.index') }}"
-                                class="nav-link {{ request()->segment(3) == 'employee' ? 'active' : '' }}">Employee</a>
+                        <li class="nav-item"><a href="{{ route('obat.index') }}"
+                                class="nav-link {{ request()->segment(2) == 'obat' ? 'active' : '' }}">Data Obat</a>
                         </li>
-                        <li class="nav-item"><a href="{{ route('departement.index') }}"
-                                class="nav-link {{ request()->segment(3) == 'departement' ? 'active' : '' }}">Departement</a>
+                        <li class="nav-item"><a href="{{ route('pasien.index') }}"
+                                class="nav-link {{ request()->segment(2) == 'pasien' ? 'active' : '' }}">Data Pasien</a>
+                        </li>
+                        <li class="nav-item"><a href="{{ route('dokter.index') }}"
+                                class="nav-link {{ request()->segment(2) == 'dokter' ? 'active' : '' }}">Data Dokter</a>
                         </li>
                     </ul>
-                </li>   
-                
+                </li>
                 <!-- /main -->
             </ul>
         </div>

@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class MsRole extends Model
 {
-    //
+    protected $guard = [];
 }

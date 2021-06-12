@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMsDepartementsTable extends Migration
+class CreateMsObatsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class CreateMsDepartementsTable extends Migration
      */
     public function up()
     {
-        Schema::create('ms_departements', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('name');
-            $table->string('description')->nullable();
+        Schema::create('ms_obats', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('nama_obat');
+            $table->integer('harga');
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 
@@ -29,6 +28,6 @@ class CreateMsDepartementsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ms_departements');
+        Schema::dropIfExists('ms_obats');
     }
 }

@@ -26,14 +26,3 @@ $factory->define(\App\Models\User::class, function (Faker $faker) {
         'created_by' => 1,
     ];
 });
-
-$factory->define(\App\Models\MsCustomer::class, function (Faker $faker) {
-    return [
-        'name' => $faker->name,
-        'phone' => $faker->phoneNumber,
-        'email' => $faker->unique()->safeEmail,
-        'ktp' => Str::random(10),
-        'image' => $faker->imageUrl($width = 640, $height = 480),
-        'created_by' => 1
-    ];
-});

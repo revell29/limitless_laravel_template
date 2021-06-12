@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title', 'User Form')
+@section('title', 'List Obat')
 
 @section('content')
 @component('layouts.component.header')
@@ -7,8 +7,8 @@
 
 @endslot
 @slot('breadcumbs')
-<h4><i class="icon-arrow-left52 mr-2"></i> <span class="font-weight-semibold">Home</span> / HR /
-    {{isset($data) ? 'Edit Departement' : 'Tambah Departement'}}</h4>
+<h4><i class="icon-arrow-left52 mr-2"></i> <span class="font-weight-semibold">Home</span> / List Obat /
+    {{isset($data) ? 'Edit Obat' : 'Tambah Obat'}}</h4>
 <a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
 @endslot
 @slot('breadcumbs2')
@@ -21,28 +21,26 @@
         <div class="col-md-6 offset-md-3">
             <div class="card">
                 <div class="card-header header-elements-inline">
-                    <h5 class="card-title">{{isset($data) ? 'Edit Departement' : 'Tambah Departement'}}</h5>
+                    <h5 class="card-title">{{isset($data) ? 'Edit obat' : 'Tambah Obat'}}</h5>
                 </div>
                 <div class="card-body">
                     <form id="form-user" enctype="multipart/form-data">
                         {{ csrf_field() }}
                         <div class="form-group">
-                            <label for="">Name</label>
-                            <input type="text" name="name" class="form-control" id=""
-                                value="{{isset($data) ? $data->name : null}}">
+                            <label for="">Nama Obat</label>
+                            <input type="text" name="nama_obat" class="form-control" id="" value="{{isset($data) ? $data->nama_obat : null}}">
                         </div>
                         <div class="form-group">
-                            <label for="">Deskripsi</label>
-                            <input type="text" name="description" class="form-control" id=""
-                                value="{{isset($data) ? $data->description : null}}">
+                            <label for="">Harga</label>
+                            <input type="text" name="harga" class="form-control" id="" value="{{isset($data) ? $data->harga : null}}">
                         </div>
-                       
+
                     </form>
                 </div>
                 <div class="card-footer">
                     <div class="text-right">
                         <button type="button" id="save" class="btn btn-md btn-primary pull-right">Submit</button>
-                        <a href="{{route('user.index')}}" class="btn btn-md btn-danger">Back</a>
+                        <a href="{{route('obat.index')}}" class="btn btn-md btn-danger">Back</a>
                     </div>
                 </div>
             </div>
@@ -52,14 +50,14 @@
 @endsection
 @push('javascript')
 <script type="text/javascript" src="{{ asset('vendor/jsvalidation/js/jsvalidation.js')}}"></script>
-{!! JsValidator::formRequest('App\Http\Requests\Departement\DepartementRequest') !!}
+{!! JsValidator::formRequest('App\Http\Requests\Obat\ObatRequest') !!}
 <script>
     $('#save').on("click",function(){
     let btn = $(this);
     let form = $('#form-user');
     if(form.valid()) {
         $.ajax({
-            url: "{{isset($data) ? route('departement.update',$data->id) : route('departement.store')}}",
+            url: "{{isset($data) ? route('obat.update',$data->id) : route('obat.store')}}",
             method: "{{isset($data) ? 'PATCH' : 'POST'}}",
             data: $('#form-user').serialize(),
             dataType: 'JSON',
@@ -74,7 +72,7 @@
                     buttonStyling: false,
                     confirmButtonClass: 'btn btn-primary btn-lg',
                 }).then(function() {
-                    window.location.href = "{{route('departement.index')}}";
+                    window.location.href = "{{route('obat.index')}}";
                 })
             },
             error: function(response){

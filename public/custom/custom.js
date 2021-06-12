@@ -10,7 +10,6 @@ $(document).ready(function(){
     $(".dataTables_filter").prepend("<select class='select' id='table-action'>" +
             "<option value='0'>Select Action</option>" +
             "<option value='1' disabled>Active</option>" +
-            "<option value='2' disabled>Deactive</option>" +
             "<option value='3' disabled>Delete</option>"+
             "</select>"
     );
@@ -89,7 +88,7 @@ $(document).ready(function(){
             url = $('#data-table').data('url') + '/' + ids;
             confirm(table, 2, url, 'DELETE')
         } else if (option == 3) {
-            url = $('#data-table').data('url') + '/remove/' + ids;
+            url = $('#data-table').data('url') + '/' + ids;
             confirm(table, 3, url, 'DELETE')
         }
 
